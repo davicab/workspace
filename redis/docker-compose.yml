@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+    redis:
+        container_name: redis_teste
+        image: redis:alpine
+        command: ["redis-server", "--appendonly", "yes"]
+        ports:
+          - "6379:6379"
+        volumes:
+          - ./data:/data
+networks:
+    default:
+        external: false
+        name: app-network
